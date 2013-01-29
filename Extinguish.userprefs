@@ -1,16 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GUI\Crosshair.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\WeaponScripts\PlayerWeapons.js">
     <Files>
-      <File FileName="Assets\GUI\Crosshair.js" Line="15" Column="17" />
-      <File FileName="Assets\GUI\PauseMenu.cs" Line="287" Column="15" />
-      <File FileName="Assets\Standard Assets\Camera Scripts\MouseLook.cs" Line="48" Column="74" />
-      <File FileName="Assets\GUI\MouseLook.cs" Line="75" Column="4" />
+      <File FileName="Assets\Standard Assets\Camera Scripts\MouseLook.cs" Line="37" Column="3" />
+      <File FileName="Assets\GUI\PauseMenu.cs" Line="323" Column="32" />
       <File FileName="Assets\Standard Assets\Scripts\FPSWalker.js" Line="26" Column="3" />
-      <File FileName="Assets\WeaponScripts\Extinguisher.js" Line="15" Column="85" />
-      <File FileName="Assets\WeaponScripts\flux.js" Line="1" Column="1" />
-      <File FileName="Assets\WeaponScripts\PlayerWeapons.js" Line="39" Column="58" />
+      <File FileName="Assets\GUI\InfoBox.js" Line="7" Column="21" />
+      <File FileName="Assets\GUI\Crosshair.js" Line="12" Column="2" />
+      <File FileName="Assets\WeaponScripts\Extinguisher.js" Line="5" Column="28" />
+      <File FileName="Assets\WeaponScripts\flux.js" Line="26" Column="2" />
+      <File FileName="Assets\WeaponScripts\PlayerWeapons.js" Line="73" Column="97" />
       <File FileName="Assets\GUI\ExtinguisherLevel.js" Line="14" Column="1" />
+      <File FileName="Assets\WeaponScripts\Fire.js" Line="1" Column="1" />
+      <File FileName="Assets\GUI\MouseLook.cs" Line="44" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

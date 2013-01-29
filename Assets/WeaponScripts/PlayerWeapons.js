@@ -62,7 +62,7 @@ function Update () {
 		
 	//in tutti gli altri frame vedo se mostrare info sugli oggetti presenti
 	} else {
-		Debug.Log("Cerco oggetti vicini");
+		//Debug.Log("Cerco oggetti vicini");
 		var guiObject : GameObject = GameObject.Find("GUI");
 		var infoBox : InfoBox = guiObject.GetComponent("InfoBox");
 		if (Physics.Raycast(ray,hit,2)) {
@@ -70,6 +70,7 @@ function Update () {
 			Debug.DrawRay(ray.origin,hit.point,Color.green);
 			if(hit.collider.gameObject.tag == "pickupAble" ) {
 				Debug.Log("Vicino estintore");
+				infoBox.extinguisherType = hit.collider.gameObject.GetComponent("Extinguisher").contentType; 
 				infoBox.messageBox = "Estintore: tipo " + hit.collider.gameObject.GetComponent("Extinguisher").contentType + "\n"+
 									"Carica residua: " + (hit.collider.gameObject.GetComponent("Extinguisher").timeLeft).ToString("#.#") + "\n" +
 									"Armato: " + (hit.collider.gameObject.GetComponent("Extinguisher").armed?"Si" + "\n" +
@@ -78,6 +79,7 @@ function Update () {
 				infoBox.Show();
 			} else if(hit.collider.gameObject.tag == "fire" ) {
 				Debug.Log("Vicino fuoco");
+				infoBox.extinguisherType = hit.collider.gameObject.GetComponent("Fire").fireType; 
 				infoBox.messageBox = "Fuoco: tipo " + hit.collider.gameObject.GetComponent("Fire").fireType + "\n";
 				infoBox.Show();
 			}

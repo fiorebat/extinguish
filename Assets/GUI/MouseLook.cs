@@ -41,7 +41,7 @@ public class MouseLook : MonoBehaviour {
 		PauseMenu menu = (PauseMenu)guiObject.GetComponent("PauseMenu");
 		
 		if (!menu.IsGamePaused()) {
-			Debug.Log("Gioco non pausato");
+			//Debug.Log("Gioco non pausato");
 			if (axes == RotationAxes.MouseXAndY)
 			{				
 				// Read the mouse input axis
