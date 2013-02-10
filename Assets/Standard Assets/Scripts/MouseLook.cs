@@ -40,11 +40,11 @@ public class MouseLook : MonoBehaviour {
 		GameObject guiObject = GameObject.Find("GUI");
 		PauseMenu menu = (PauseMenu)guiObject.GetComponent("PauseMenu");
 		GameObject fpsObject  = GameObject.Find("First Person Controller");
-		LookExtinguisher lookExt = fpsObject.GetComponent("LookExtinguisher");
+		InteractExtinguisher lookExt = (InteractExtinguisher)fpsObject.GetComponent("InteractExtinguisher");
 		
 		bool isLookingExtinguisher = lookExt.isLookingExtinguisher();
 		
-		if (!menu.IsGamePaused() || !isLookingExtinguisher) {
+		if (!menu.IsGamePaused() && !isLookingExtinguisher ) {
 			//Debug.Log("Gioco non pausato");
 			if (axes == RotationAxes.MouseXAndY)
 			{				

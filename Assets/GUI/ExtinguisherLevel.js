@@ -1,4 +1,4 @@
-var seconds : String;
+var seconds : double;
 var textPosition : Rect;
 var font: Font;
 
@@ -9,5 +9,5 @@ function Start()
 
 function OnGUI()
 {
-	GUI.Label(textPosition, "Extinguisher Level "+seconds+"s");
+	GUI.Label(textPosition, "Extinguisher Level "+((seconds/10)*100).ToString("#.#")+" %");
 }

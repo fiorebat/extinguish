@@ -6,6 +6,8 @@ var armed: boolean = false;
 
 function Start () {
 	timeLeft = seconds;
+	
+	this.transform.Find("Extinguisher Camera").camera.enabled = false;
 } 
 function Update () {
 	if (Input.GetAxis("Fire1") && equipped){
@@ -13,7 +15,7 @@ function Update () {
 		if ( timeLeft >= 0) {
 			timeLeft = timeLeft - Time.deltaTime;
 			var guiObject : GameObject = GameObject.Find("GUI");
-			guiObject.GetComponent("ExtinguisherLevel").seconds = (timeLeft).ToString("#.#");
+			guiObject.GetComponent("ExtinguisherLevel").seconds = timeLeft;
 			//animation.Play("Grab");
 			if (!audio.isPlaying)
 				audio.Play();

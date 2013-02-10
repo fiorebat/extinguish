@@ -8,7 +8,10 @@ private var moveDirection = Vector3.zero;
 private var grounded : boolean = false;
 
 function Start() { 
-	while(true) {
+	var fpsObject : GameObject = GameObject.Find("First Person Controller");
+	var lookExt : InteractExtinguisher = fpsObject.GetComponent("InteractExtinguisher");
+	var isLookingExtinguisher = lookExt.isLookingExtinguisher();
+	while(!isLookingExtinguisher) {
 		if (Mathf.Abs(Input.GetAxis("Vertical")) > 0.1){
 	      yield WaitForSeconds(stepWaitTime);
 	      audio.PlayOneShot(footsteps[Random.Range(0,footsteps.length)]);
@@ -18,7 +21,11 @@ function Start() {
 }
 
 function FixedUpdate() {
-	if (grounded) {
+	var fpsObject : GameObject = GameObject.Find("First Person Controller");
+	var lookExt : InteractExtinguisher = fpsObject.GetComponent("InteractExtinguisher");
+	var isLookingExtinguisher = lookExt.isLookingExtinguisher();
+
+	if (grounded && !isLookingExtinguisher) {
 		// We are grounded, so recalculate movedirection directly from axes
 		moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 		moveDirection = transform.TransformDirection(moveDirection);
