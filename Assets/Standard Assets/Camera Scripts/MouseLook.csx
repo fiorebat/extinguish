@@ -14,8 +14,6 @@ using System.Collections;
 /// - Create a camera. Make the camera a child of the capsule. Reset it's transform.
 /// - Add a MouseLook script to the camera.
 ///   -> Set the mouse look to use LookY. (You want the camera to tilt up and down like a head. The character already turns.)
-/// 
-/// 
 [AddComponentMenu("Camera-Control/Mouse Look")]
 public class MouseLook : MonoBehaviour {
 
@@ -38,44 +36,35 @@ public class MouseLook : MonoBehaviour {
 	void Update ()
 	{
 		GameObject guiObject = GameObject.Find("GUI");
-		PauseMenu menu = (PauseMenu)guiObject.GetComponent("PauseMenu");
-		GameObject fpsObject  = GameObject.Find("First Person Controller");
-		LookExtinguisher lookExt = fpsObject.GetComponent("LookExtinguisher");
-		
-		bool isLookingExtinguisher = lookExt.isLookingExtinguisher();
-		
-		if (!menu.IsGamePaused() || !isLookingExtinguisher) {
-			//Debug.Log("Gioco non pausato");
-			if (axes == RotationAxes.MouseXAndY)
-			{				
-				// Read the mouse input axis
-				rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-	
-				rotationX = ClampAngle (rotationX, minimumX, maximumX);
-				rotationY = ClampAngle (rotationY, minimumY, maximumY);
-				
-				Quaternion xQuaternion = Quaternion.AngleAxis (rotationX, Vector3.up);
-				Quaternion yQuaternion = Quaternion.AngleAxis (rotationY, Vector3.left);
-				
-				transform.localRotation = originalRotation * xQuaternion * yQuaternion;
-			}
-			else if (axes == RotationAxes.MouseX)
-			{
-				rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-				rotationX = ClampAngle (rotationX, minimumX, maximumX);
-	
-				Quaternion xQuaternion = Quaternion.AngleAxis (rotationX, Vector3.up);
-				transform.localRotation = originalRotation * xQuaternion;
-			}
-			else
-			{
-				rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
-				rotationY = ClampAngle (rotationY, minimumY, maximumY);
-	
-				Quaternion yQuaternion = Quaternion.AngleAxis (rotationY, Vector3.left);
-				transform.localRotation = originalRotation * yQuaternion;
-			}
+		if (axes == RotationAxes.MouseXAndY)
+		{				
+			// Read the mouse input axis
+			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+
+			rotationX = ClampAngle (rotationX, minimumX, maximumX);
+			rotationY = ClampAngle (rotationY, minimumY, maximumY);
+			
+			Quaternion xQuaternion = Quaternion.AngleAxis (rotationX, Vector3.up);
+			Quaternion yQuaternion = Quaternion.AngleAxis (rotationY, Vector3.left);
+			
+			transform.localRotation = originalRotation * xQuaternion * yQuaternion;
+		}
+		else if (axes == RotationAxes.MouseX)
+		{
+			rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+			rotationX = ClampAngle (rotationX, minimumX, maximumX);
+
+			Quaternion xQuaternion = Quaternion.AngleAxis (rotationX, Vector3.up);
+			transform.localRotation = originalRotation * xQuaternion;
+		}
+		else
+		{
+			rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+			rotationY = ClampAngle (rotationY, minimumY, maximumY);
+
+			Quaternion yQuaternion = Quaternion.AngleAxis (rotationY, Vector3.left);
+			transform.localRotation = originalRotation * yQuaternion;
 		}
 	}
 	
@@ -85,8 +74,6 @@ public class MouseLook : MonoBehaviour {
 		if (rigidbody)
 			rigidbody.freezeRotation = true;
 		originalRotation = transform.localRotation;
-		
-		
 	}
 	
 	public static float ClampAngle (float angle, float min, float max)

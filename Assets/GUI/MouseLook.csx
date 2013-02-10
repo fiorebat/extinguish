@@ -17,7 +17,7 @@ using System.Collections;
 /// 
 /// 
 [AddComponentMenu("Camera-Control/Mouse Look")]
-public class MouseLook : MonoBehaviour {
+public class MouseLookExt : MonoBehaviour {
 
 	public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
 	public RotationAxes axes = RotationAxes.MouseXAndY;
@@ -39,12 +39,8 @@ public class MouseLook : MonoBehaviour {
 	{
 		GameObject guiObject = GameObject.Find("GUI");
 		PauseMenu menu = (PauseMenu)guiObject.GetComponent("PauseMenu");
-		GameObject fpsObject  = GameObject.Find("First Person Controller");
-		LookExtinguisher lookExt = fpsObject.GetComponent("LookExtinguisher");
-		
-		bool isLookingExtinguisher = lookExt.isLookingExtinguisher();
-		
-		if (!menu.IsGamePaused() || !isLookingExtinguisher) {
+				
+		if (!menu.IsGamePaused()) {
 			//Debug.Log("Gioco non pausato");
 			if (axes == RotationAxes.MouseXAndY)
 			{				
