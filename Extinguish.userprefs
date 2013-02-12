@@ -1,16 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\WeaponScripts\Extinguisher.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HintBox.js">
     <Files>
-      <File FileName="Assets\Standard Assets\Scripts\InteractExtinguisher.cs" Line="9" Column="27" />
-      <File FileName="Assets\Standard Assets\Scripts\MouseLook.cs" Line="45" Column="64" />
-      <File FileName="Assets\Standard Assets\Scripts\PauseMenu.cs" Line="362" Column="17" />
+      <File FileName="Assets\HintBox.js" Line="20" Column="17" />
+      <File FileName="Assets\GUI\InfoBox.js" Line="2" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\InteractExtinguisher.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\MouseLook.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\PauseMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\WeaponScripts\flux.js" Line="1" Column="1" />
       <File FileName="Assets\GUI\ExtinguisherLevel.js" Line="1" Column="1" />
       <File FileName="Assets\WeaponScripts\PlayerWeapons.js" Line="1" Column="1" />
-      <File FileName="Assets\WeaponScripts\Extinguisher.js" Line="10" Column="68" />
+      <File FileName="Assets\WeaponScripts\Extinguisher.js" Line="26" Column="17" />
       <File FileName="Assets\WeaponScripts\FPSPlayer.js" Line="1" Column="1" />
-      <File FileName="Assets\Misc Scripts\FPSWalker.js" Line="12" Column="49" />
+      <File FileName="Assets\Misc Scripts\FPSWalker.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
