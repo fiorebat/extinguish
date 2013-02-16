@@ -1,18 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\HintBox.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\WeaponScripts\PlayerWeapons.js">
     <Files>
-      <File FileName="Assets\HintBox.js" Line="20" Column="17" />
-      <File FileName="Assets\GUI\InfoBox.js" Line="2" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\InteractExtinguisher.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\MouseLook.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\Scripts\PauseMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\WeaponScripts\flux.js" Line="1" Column="1" />
-      <File FileName="Assets\GUI\ExtinguisherLevel.js" Line="1" Column="1" />
-      <File FileName="Assets\WeaponScripts\PlayerWeapons.js" Line="1" Column="1" />
-      <File FileName="Assets\WeaponScripts\Extinguisher.js" Line="26" Column="17" />
-      <File FileName="Assets\WeaponScripts\FPSPlayer.js" Line="1" Column="1" />
-      <File FileName="Assets\Misc Scripts\FPSWalker.js" Line="1" Column="1" />
+      <File FileName="Assets\WeaponScripts\PlayerWeapons.js" Line="16" Column="31" />
+      <File FileName="Assets\HintBox.js" Line="19" Column="54" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

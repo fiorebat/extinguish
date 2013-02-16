@@ -1,4 +1,6 @@
 #pragma strict
+enum Message { Search = 0, PressF = 1, PressE = 2, Arm = 3, Armed = 4, Exausted = 5, Ended = 6, Equipped = 7, Dropped = 8 } 
+
 var windowPos : Rect;
 var customSkin : GUISkin;
 var windowOpen : boolean = false;
@@ -7,13 +9,16 @@ var messageText : String[];
 function Start () {
 	windowPos = new Rect(Screen.width/2 + 20, Screen.height-60, Screen.width/2 - 40, 40);
 
-	messageText = new String[6];
-	messageText[0] = "Cerca un estintore per spegnere i fuochi";
-	messageText[1] = "Premi [F] per equipaggiare l'estintore";
-	messageText[2] = "Premi [E] per armare o vedere lo stato dell'estintore";
-	messageText[3] = "L'estintore deve essere armato funzionare";
-	messageText[4] = "L'estintore è scarico premi [E] per lasciarlo";
-	messageText[5] = "I fuochi sono spenti";
+	messageText = new String[9];
+	messageText[Message.Search] = "Cerca un estintore per spegnere i fuochi";
+	messageText[Message.PressF] = "Premi [F] per equipaggiare l'estintore";
+	messageText[Message.PressE] = "Premi [E] per armare o vedere lo stato dell'estintore";
+	messageText[Message.Arm] = "L'estintore deve essere armato funzionare";
+	messageText[Message.Armed] = "Estintore armato";
+	messageText[Message.Exausted] = "L'estintore è scarico premi [E] per lasciarlo";
+	messageText[Message.Ended] = "I fuochi sono spenti";
+	messageText[Message.Equipped] = "Estintore equipaggiato";
+	messageText[Message.Dropped] = "Estintore lasciato";
 
 }
 function OnGUI()
@@ -28,6 +33,11 @@ function OnGUI()
 			GUI.Box(windowPos, messageText[selectedMessage]);
 		}
 	}
+}
+function ShowMessage(messageId : int) {
+	StopAllCoroutines();
+	selectedMessage = messageId;
+	windowOpen = true;
 }
 function DisapearBoxAfter(waitTime: float) {
     // suspend execution for waitTime seconds
