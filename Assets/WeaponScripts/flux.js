@@ -1,6 +1,6 @@
 #pragma strict
  var emptyExtinguisher:boolean = false;
- var projectedPowder: GameObject;
+
  
 function Start() {
 	emptyExtinguisher=false;
@@ -20,11 +20,6 @@ function OnParticleCollision (other : GameObject)
 	var hitFire = other.GetComponent(Fire);
     if (other.tag == "fire" && getTypeLetters(myExtinguisher.contentType).Contains(hitFire.fireType)) {
     	other.particleEmitter.emit = false;	
-    } else if (myExtinguisher.contentType == "Powder") {
-    		var powderProjection : GameObject = Instantiate(
-    			projectedPowder, 
-    			Vector3( this.transform.position.x, this.transform.position.y + 3, this.transform.position.z),
-    			this.transform.rotation);
     }
 }
 public function exaustExtinguisher() {

@@ -47,8 +47,8 @@ function Update () {
 		    		hit.collider.gameObject.transform.Rotate(0,-90,0);
 		    		
 		    		//equip
-		    		 hit.collider.GetComponent("Extinguisher").equip();
-		    		 hintBox.ShowMessage(Message.Equipped);
+		    		hit.collider.GetComponent("Extinguisher").equip();
+		    		hintBox.ShowMessage(Message.Equipped);
 	
 		    	} else {
 		    		Debug.Log("Oggetto non raccoglibile");
