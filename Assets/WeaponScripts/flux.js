@@ -1,7 +1,6 @@
 #pragma strict
  var emptyExtinguisher:boolean = false;
 
- 
 function Start() {
 	emptyExtinguisher=false;
 	particleEmitter.emit=false;

@@ -3,7 +3,8 @@ var timeLeft: float;
 var equipped: boolean;
 var contentType: String;
 var armed: boolean = false;
- var projectedPowder: GameObject;
+var projectedPowder: GameObject;
+var isDirting : boolean = true;
 function Start () {
 	timeLeft = seconds;
 	
@@ -18,14 +19,17 @@ function Update () {
 			guiObject.GetComponent("ExtinguisherLevel").seconds = timeLeft;
 			//animation.Play("Grab");
 			
-			if (myExtinguisher.contentType == "Powder") {
-    		var powderProjection : GameObject = Instantiate(
-    			projectedPowder, 
-    			Vector3( this.transform.position.x, this.transform.position.y + 3, this.transform.position.z),
-    			this.transform.rotation);
+			if (contentType == "Powder") {
+				if (isDirting) {
+					WaitToDirt(1.0);
+					isDirting = false;
+					var powderRotation = this.transform.rotation;
+					powderRotation.SetEulerRotation(20,0,0);
+		    		var powderProjection : GameObject = Instantiate(
+		    			projectedPowder, this.transform.position, powderRotation);
+	    		}
     		}
-			
-			
+    		
 			if (!audio.isPlaying)
 				audio.Play();
 		}
@@ -52,4 +56,11 @@ function unequip() {
 	transform.position.y = 2.5;
 	collider.enabled = true;
 	this.gameObject.AddComponent(Rigidbody);
+}
+
+function WaitToDirt(waitTime: float) {
+    // suspend execution for waitTime seconds
+    yield WaitForSeconds (waitTime);
+    isDirting = true;
+    
 }
