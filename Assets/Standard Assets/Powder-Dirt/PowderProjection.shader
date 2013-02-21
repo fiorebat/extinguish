@@ -1,27 +1,26 @@
-Shader "Extinguish/Projector Multiply" { 
-	Properties {
-		_ShadowTex ("Cookie", 2D) = "gray" { TexGen ObjectLinear }
-		_FalloffTex ("FallOff", 2D) = "white" { TexGen ObjectLinear	}
+Shader "BlendedDecal"
+{
+	Properties
+	{
+		_Color ("Tint", Color) = (1,1,1,1)
+		_MainTex ("Texture", 2D) = "white" {}
 	}
-
-	Subshader {
-		Tags { "RenderType"="Transparent" }
-		Pass {
-			ZWrite Off
+	
+	SubShader
+	{
+		Lighting Off
+		ZTest LEqual
+		ZWrite Off
+		Tags {"Queue" = "Transparent"}
+		Pass
+		{
+			Alphatest Greater 0
+			Blend SrcAlpha OneMinusSrcAlpha
 			Offset -1, -1
-
-			Fog { Color (1, 1, 1) }
-			AlphaTest Greater 0
-			ColorMask RGB
-			Blend DstColor Zero
-			SetTexture [_ShadowTex] {
-				combine texture, ONE - texture
-				Matrix [_Projector]
-			}
-			SetTexture [_FalloffTex] {
-				constantColor (1,1,1,0)
-				combine previous lerp (texture) constant
-				Matrix [_ProjectorClip]
+			SetTexture [_MainTex]
+			{
+				ConstantColor[_Color]
+				Combine texture * constant
 			}
 		}
 	}
