@@ -5,10 +5,11 @@ var contentType: String;
 var armed: boolean = false;
 var isDirting : boolean = true;
 var powderMaterial : Material;
+var decalManager : DecalManager;
 
 function Start () {
 	timeLeft = seconds;
-	
+	decalManager = GameObject.Find("Powder Dirt Manager").GetComponent(DecalManager);
 	this.transform.Find("Extinguisher Camera").camera.enabled = false;
 } 
 function Update () {
@@ -31,13 +32,17 @@ function Update () {
 		    		/*var powderProjection : GameObject = Instantiate(
 		    			projectedPowder, mainCamera.transform.position, mainCamera.transform.rotation);
 		    			*/
+		    		
 		    		var hit : RaycastHit;
 		    		var ray = camera.main.ScreenPointToRay (Vector3(Screen.width/2.0,Screen.height/2.0,0));	
 	    			if (!Physics.Raycast(ray,hit,7)) {
 	    				Debug.Log("Mancato" +mainCamera.name);
-		    			ray = new Ray(Vector3(mainCamera.transform.position.x,mainCamera.transform.position.y,mainCamera.transform.position.z+7), -mainCamera.transform.up);
+		    			
+		    			mainCamera = GameObject.Find("Powder Dirt Camera");
+		    			ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
 		    		}
-		    		//Decals.CreateDecal(ray, powderMaterial);
+		    		
+		    		DelayedDirt(ray, mainCamera.camera, 1.5);
 	    		}
     		}
     		
@@ -73,5 +78,13 @@ function WaitToDirt(waitTime: float) {
     // suspend execution for waitTime seconds
     yield WaitForSeconds (waitTime);
     isDirting = true;
+    
+}
+
+function DelayedDirt(direction : Ray, activedCamera : Camera, waitTime: float) {
+    // suspend execution for waitTime seconds
+    yield WaitForSeconds (waitTime);
+    Debug.DrawRay(direction.origin,direction.direction,Color.red,20, true);
+	decalManager.drawDecal(direction, activedCamera);
     
 }
