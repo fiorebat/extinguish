@@ -50,8 +50,12 @@ function Update () {
 				audio.Play();
 		}
 		else {
-			var extinguisherFlux: flux  = GameObject.Find("extinguisherFlux").GetComponent(flux);
-			extinguisherFlux.exaustExtinguisher();
+			try {
+				var extinguisherFlux: flux  = GameObject.Find("extinguisherFlux").GetComponent(flux);
+				extinguisherFlux.exaustExtinguisher();
+			} catch (err) {
+				Debug.Log("Extinguisher no longer exists: "+err.Message);
+			}
 			audio.Stop();
 		}
 	} else {
