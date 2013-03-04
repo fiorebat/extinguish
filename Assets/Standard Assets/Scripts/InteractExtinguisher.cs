@@ -19,6 +19,10 @@ public class InteractExtinguisher : MonoBehaviour {
 			Debug.Log("Estintore equipaggiato"+extinguisherEquiped.name);
 			mainCamera.enabled = !mainCamera.enabled;
 			extinguisherCamera.enabled = !extinguisherCamera.enabled;
+			
+		}
+		if (Input.GetButtonDown("Fire1") && isExtinguisherEquiped && !mainCamera.enabled) {
+			GameObject extinguisherEquiped = GameObject.Find("Weapons").transform.GetChild(0).gameObject;
 		}
 	}
 	public bool isLookingExtinguisher()

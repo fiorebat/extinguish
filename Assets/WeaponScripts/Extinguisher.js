@@ -14,7 +14,7 @@ function Start () {
 } 
 function Update () {
 
-	if (Input.GetAxis("Fire1") && equipped){
+	if (Input.GetAxis("Fire1") && equipped && !this.transform.Find("Extinguisher Camera").camera.enabled){
 		// Did you finish the extinguisher?
 		if ( timeLeft >= 0) {
 			timeLeft = timeLeft - Time.deltaTime;
