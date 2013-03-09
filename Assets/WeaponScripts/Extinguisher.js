@@ -11,6 +11,11 @@ function Start () {
 	timeLeft = seconds;
 	decalManager = GameObject.Find("Powder Dirt Manager").GetComponent(DecalManager);
 	this.transform.Find("Extinguisher Camera").camera.enabled = false;
+	
+	animation["Grab"].enabled = true;
+	animation["Grab"].weight = 1f;
+	animation["Grab"].time = 0.01f;
+	animation["Grab"].speed = 0;
 } 
 function Update () {
 
@@ -76,6 +81,12 @@ function unequip() {
 	transform.position.y = 2.5;
 	collider.enabled = true;
 	this.gameObject.AddComponent(Rigidbody);
+	
+	animation.Stop("Default Take");
+	animation["Grab"].enabled = true;
+	animation["Grab"].weight = 1f;
+	animation["Grab"].time = 0.01f;
+	animation["Grab"].speed = 0;
 }
 
 function WaitToDirt(waitTime: float) {
