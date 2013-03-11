@@ -3,10 +3,10 @@ var imgPos : Rect[];
 var customSkin : GUISkin;
 var windowOpen : boolean = false;
 var messageBox : String;
+var messageBoxGuide : String;
 var extinguisherImages : Texture2D[];
 var extinguisherType : String;
 var typeLetters : Texture2D[];
-
 function Start()
 {
 	typeLetters = new Texture2D[6];
@@ -23,10 +23,20 @@ function OnGUI()
 {
 	GUI.skin = customSkin;
 	if (windowOpen) {
+		//extinguisher properties
 		GUI.Box(windowPos, messageBox);
-		for (var i:int = 0; i < extinguisherImages.Length; i++) {
+		
+		
+		//extinguisher types textures
+		var i: int = 0;
+		for (i = 0; i < extinguisherImages.Length; i++) {
 			GUI.DrawTexture(imgPos[i],extinguisherImages[i],ScaleMode.ScaleAndCrop);
 		}
+		var guidePos = Rect(imgPos[0].left, imgPos[i-1].bottom + 36, imgPos[i-1].right - imgPos[0].left - 10, imgPos[i-1].bottom + 100);
+		
+		//extinguisher guide
+		GUI.Label(guidePos, messageBoxGuide);
+
 	}
 }
 function getTypeResource( resource: String){
@@ -84,6 +94,8 @@ function Show() {
 			imgTop += imgWidth+(Screen.width/20);
 			extinguisherImages[2] = getTypeResource("C");
 			imgPos[2] = Rect (imgLeft, imgTop, imgWidth, imgWidth);
+			
+			messageBoxGuide = "L'estintore a polvere chimica polivalente ABC è il più diffuso, è efficiente con tutti i tipi di fuochi escluso D. Sporca. Rimuovere l'anello (premere [E] dopo aver equipaggiato l'estintore e rimuoverlo) dirigere poi il getto sulla base del fuoco."; 
 			break;
 		case "CO2":
 			Debug.Log("co2");
@@ -94,6 +106,8 @@ function Show() {
 			imgLeft += imgWidth+(Screen.width/20);
 			extinguisherImages[1] = getTypeResource("C");
 			imgPos[1] = Rect (imgLeft, imgTop, imgWidth, imgWidth);
+			
+			messageBoxGuide = "L'estintore ad anidride carbonica è meno sporcante e usato per apparecchiature in tensione. Non efficiente all'esterno, con incendi di tipo A, modesto rischio di ustione congelante e asfissia per l'utilizzatore. Rimuovere l'anello (premere [E] dopo aver equipaggiato l'estintore e rimuoverlo) dirigere poi il getto sulla base del fuoco."; 
 			break;
 		default:
 			Debug.Log("default");
