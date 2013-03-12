@@ -12,10 +12,16 @@ function Start() {
 	
 }
 function Update () {
-	
-	if (Input.GetAxis("Fire1") && !emptyExtinguisher && myExtinguisher.equipped && myExtinguisher.armed) {
+	var extCamera : Camera = myExtinguisher.transform.Find("Extinguisher Camera").camera;
+	if (Input.GetAxis("Fire1") && !emptyExtinguisher && myExtinguisher.equipped && myExtinguisher.armed && !extCamera.enabled) {
 		particleEmitter.emit=true;
-		//Debug.Log(myHandle.name+myHandle.transform.localRotation.eulerAngles.x);
+		
+		Debug.Log(285+(myExtinguisher.GetComponent(Extinguisher).timeLeft /10*(-30)));
+		
+		var pressureArrow = myExtinguisher.transform.Find("freccia");		
+		pressureArrow.transform.rotation = myExtinguisher.transform.parent.rotation * Quaternion.AngleAxis( 285+(myExtinguisher.GetComponent(Extinguisher).timeLeft /10*(-30)), Vector3(1,0,0));
+		
+		
 		
 		if (myHandle.transform.localRotation.eulerAngles.x<360.0 && myHandle.transform.localRotation.eulerAngles.x>=340.0)
 			myHandle.transform.localRotation.eulerAngles.x+=0.1;

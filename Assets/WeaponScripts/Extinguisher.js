@@ -21,6 +21,7 @@ function Start () {
 	animation["Grab"].speed = 0;
 	var guiObject : GameObject = GameObject.Find("GUI");
 	hintBox = guiObject.GetComponent("HintBox");
+	
 } 
 function Update () {
 

@@ -32,10 +32,13 @@ function OnGUI()
 		for (i = 0; i < extinguisherImages.Length; i++) {
 			GUI.DrawTexture(imgPos[i],extinguisherImages[i],ScaleMode.ScaleAndCrop);
 		}
-		var guidePos = Rect(imgPos[0].left, imgPos[i-1].bottom + 36, imgPos[i-1].right - imgPos[0].left - 10, imgPos[i-1].bottom + 100);
 		
-		//extinguisher guide
-		GUI.Label(guidePos, messageBoxGuide);
+		if (extinguisherImages.Length > 1) {
+			var guidePos = Rect(imgPos[0].left, imgPos[i-1].bottom + 36, imgPos[1].right - imgPos[0].left - 10, imgPos[i-1].bottom + 100);
+			
+			//extinguisher guide
+			GUI.Label(guidePos, messageBoxGuide); 
+		}
 
 	}
 }
